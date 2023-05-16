@@ -1,0 +1,161 @@
+
+*{
+    margin: 0;
+    padding: 0;   
+}
+body {
+    font-family: verdana;
+    color: black; 
+    font-size: 18px;
+    position: relative;
+    background: url(img/ssscribble.svg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* background: rgba(215, 213, 213, 0.5); */
+}
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background: rgba(255, 255, 255, 0.5); Remplacer '0, 0, 0, 0.5' par les valeurs RGBA de votre choix */
+    pointer-events: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:25px;
+    background-color: #e7e7eaf9; 
+}
+
+nav a{
+    padding: 25px;
+    color: black;
+    font-size: 22px;
+    text-decoration: none;
+}
+nav a:hover{
+    text-decoration: underline;
+    color: #a3183f;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 900px;
+    margin: 0 auto;
+
+}
+section,article{
+    margin: 25px 0;
+}
+img {
+    margin-top: 10px;
+    /* min-height: 250px; */
+    width: 100%;
+    border-radius:0;
+    object-fit:cover;
+     box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    transition: 0.5s;
+}
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff ;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+input {
+    width: calc(100% - 100px);
+    padding: 10px;
+    outline: 0;
+    /* background-color: #f5f1f1; */
+}
+
+button {
+    width: 90px;
+    cursor: pointer;
+    color: #a3183f;
+    background-color: transparent;   
+}
+
+input , button {
+    border: 0;
+}
+
+div{
+    color: #000000;
+    padding: 20px;
+    border: 2px solid #dddcdc;
+    background-color: #f8f8f8;
+    margin: 10px 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    animation: identifier 0.5s ease-out;  
+}
+p {
+   margin-top: 5px;
+}
+span,a {
+    color:#a3183f;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 30px;
+    min-height:65px;
+    background-color: #e7e7eaf9; 
+}
+@keyframes identifier {
+    from{
+        transform: translateY(100px);
+    }
+}
+.carte-pays{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.carte-pays img{
+    max-width:40px;
+    margin:0;
+}
+.question-recherche{
+    padding:10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.infos-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    width: 100%;
+  }
+  #app{
+    width: 100%;
+  }
+  .tri {
+    display: flex;
+    /* justify-content: center; */
+    gap:30px;
+  }
+  .tri a {
+    font-weight: bold;
+  }
+.weather{
+    background-color: #f5d2cd;
+}
+.carte{
+    max-width: 400px;
+    background-color: #fefefe;
+    margin: 0 auto;
+}
+.carte span{
+    font-weight: bold;
+}
