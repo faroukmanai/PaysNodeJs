@@ -56,9 +56,10 @@ export default class extends AbstractViews {
   displayCountries(countries, container) {
     let html = ''; // Crée une variable pour contenir la chaîne HTML
   
-    countries.forEach(country => {
+    countries.forEach((country, index) => {
       html += `
         <article class="carte-pays">
+          <h3>${index + 1}.</h3>
           <img class="petite-img" src="${country.flags.svg}">
           <h4>${country.name.common}</h4>
         </article>

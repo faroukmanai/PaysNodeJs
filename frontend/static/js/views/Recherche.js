@@ -38,6 +38,7 @@ export default class extends AbstractViews {
       const continent = country.continents
       const population = country.population
       const flag = country.flags.svg
+      const timezone = country.timezones
 
     // Récupération des informations météo pour la capitale
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${capital}&appid=`+API_KEY+`&units=metric`;
