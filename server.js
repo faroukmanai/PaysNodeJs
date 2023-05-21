@@ -27,8 +27,6 @@ const updateDataFile = () => {
 }
 
 
-
-
 // Appeler la fonction au démarrage du serveur
 updateDataFile();
 

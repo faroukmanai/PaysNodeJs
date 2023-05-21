@@ -1,6 +1,7 @@
 
 import AbstractViews from "./AbstractViews.js"
-const API_KEY = '0d268b54dab0ffaefcb6b7b9eaeb352a'//je dois changer ca
+const API_KEY = '0d268b54dab0ffaefcb6b7b9eaeb352a'
+// const {API_KEY} =require('./config.js')
 
 export default class extends AbstractViews {
   constructor(params) {
@@ -8,6 +9,7 @@ export default class extends AbstractViews {
     this.setTitle('Recherche Pays');
   }
 
+  // une méthode asynchrone getHtml qui renvoie le HTML de la vue
   async getHtml() {
     return ` 
       <article class="searchBar">
@@ -19,20 +21,25 @@ export default class extends AbstractViews {
       <section class="infos"></section>`
       
   }
-
+  // une autre méthode asynchrone, afterRender, qui est exécutée après le rendu du HTML.
   async afterRender() {
+    // récupérez les éléments de la page dont j'ai besoin.(valeur de l'iput et le bouton)
     const searchButton = document.querySelector('.search-button');
     const textInput = document.querySelector(".text");
 
+    // fonction asynchrone, searchAction, qui est exécutée lorsque l'utilisateur clique sur le bouton de recherche ou appuie sur la touche Entrée.
     const searchAction = async () => {
       console.log('click or enter key pressed')
+      // récupérez le texte entré par l'utilisateur.
       let textCountry = textInput.value;
-
+      // définir l'URL de l'API en y incluant le texte entré par l'utilisateur.
       let url = "https://restcountries.com/v3.1/name/" + textCountry;
+      // une requête à l'API pour obtenir des informations sur le pays.
       const response = await fetch(url);
       const data = await response.json();
       console.log(data[0])
 
+      // extraire les informations dont j'ai besoin de la réponse de l'API.
       const country = data[0]
       const capital = country.capital
       const continent = country.continents
@@ -45,7 +52,8 @@ export default class extends AbstractViews {
 
     const weatherResponse = await fetch(weatherUrl);
     const weatherData = await weatherResponse.json();
-
+    
+    // extraire la température de la réponse de l'API météo.
     const temperature = weatherData.main.temp;
 
       const infos = document.querySelector(".infos")
@@ -67,6 +75,7 @@ export default class extends AbstractViews {
       `;
     };
 
+    //les écouteurs d'evenement pour la fonction searchButton
     searchButton.addEventListener('click', searchAction);
     textInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
